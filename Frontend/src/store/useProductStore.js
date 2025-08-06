@@ -15,10 +15,23 @@ export const useProductStore=create((set,get)=>({
         const response= await axios.get(`${BASE_URL}/api/products`)
         set({products: response.data.data,error:null})
     } catch (error) {
-        if(error.status===429) set({error:"Rate Limit exceeded!"});
-        else set({error:"Something went wrong!"});
+        if(error.status===429) set({error:"Rate Limit exceeded!", products:[]});
+        else set({error:"Something went wrong!", products:[]});
     } finally{
         set({loading:false})
+    }
+  },
+  deleteProduct:async(id)=>{
+    set({loading:true});
+    try {
+      await axios.delete(`${BASE_URL}/api/products/${id}`);
+      set((prev)=>({products: prev.products.filter((product)=>product.id!==id)}));
+      toast.success("Product deleted Succesfully");
+    } catch (error) {
+      console.log("Error in deleteProduct", error);
+      toast.error("Something went wrong!")
+    } finally{
+      set({loading:false});
     }
   }
   
