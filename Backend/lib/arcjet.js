@@ -17,7 +17,9 @@ export const aj = arcjet({
     detectBot({
         mode:"LIVE",
         allow:[
-            "CATEGORY:SEARCH_ENGINE"//Index data for search engines like google, bing, etc.
+            "CATEGORY:SEARCH_ENGINE",//Index data for search engines like google, bing, etc.
+            "UA:PostmanRuntime/7.45.0", //Allow Postman Requests 
+            "IP:127.0.0.1" //Allow localhost
         ]
         //allowing only search engine bots while blocking the rest
     }),

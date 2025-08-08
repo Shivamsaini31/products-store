@@ -8,7 +8,35 @@ export const useProductStore=create((set,get)=>({
   products:[],
   loading:false,
   error:null,
+
+  //form state
+  formData:{
+    name:"",
+    price:"",
+    image:""
+  },
+  setFormData:(formData)=>set({formData}),
+  resetForm:(formData)=>set({formData:{name:"", price:"",image:""}}),
   
+  addProduct:async(e)=>{
+    e.preventDefault();
+    set({loading:true});
+    
+    try {
+      const form=get();
+      await axios.post(`${BASE_URL}/api/products`,get().formData);
+      await get().fetchProducts();
+      get().resetForm();
+      toast.success("Product added succesfully!")
+      document.getElementById("add_product_modal").close();
+    } catch (error) {
+      console.log("Error in adding product: ",error);
+      toast.error("Something went wrong!")
+    } finally{
+      set({loading:false});
+    }
+  },
+
   fetchProducts:async()=>{
     set({loading:true});
     try {
