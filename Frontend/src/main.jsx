@@ -1,17 +1,25 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import App from './App.jsx';
 import { BrowserRouter } from 'react-router-dom';
-import { useThemeStore } from './store/useThemeStore.js';
+import { useThemeStore } from './store/useThemeStore';
 
-const { theme } = useThemeStore.getState();
-document.documentElement.setAttribute("data-theme", theme);
+function ThemeUpdater() {
+  const { theme } = useThemeStore();
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  return null;
+}
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-    <App />
+      <ThemeUpdater />
+      <App />
     </BrowserRouter>
-  </StrictMode>,
-)
+  </StrictMode>
+);

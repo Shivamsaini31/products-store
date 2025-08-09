@@ -54,12 +54,17 @@ export const deleteProduct=async(req,res)=>{
 };
 
 export const updateProduct=async(req,res)=>{
+    const {id}=req.params;
     const {name,price,image}=req.body;
+    if (!name || !price || !image) {
+    return res.status(400).json({ success: false, message: "All fields are required" });
+  }
     try {
         const updatedProduct=await sql`
         UPDATE products
         SET name=${name}, price=${price}, image=${image}
-        RETURNING *`
+        WHERE id=${id}
+        RETURNING *`;
         if(updatedProduct.length===0){
             console.log("No such product found!")
             res.status(404).json({success:false, message:"Product not found!"})
@@ -67,6 +72,6 @@ export const updateProduct=async(req,res)=>{
         res.status(200).json({success:true, data:updatedProduct[0]});
     } catch (error) {
         console.log("Error updating product: ", error);
-        res.status(500).status("Internal Server error!")
+        res.status(500).send("Internal Server error!")
     }
 };
