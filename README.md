@@ -33,12 +33,12 @@ Built using React, Node.js, Express, and PostgreSQL (Neon) with a modern UI powe
 
   **Frontend**
 
-     - React
-     - TailwindCSS
-     - DaisyUI
-     - Zustand
-     - React Router
-     - React Hot Toast (notifications)
+ - React
+ - TailwindCSS
+ - DaisyUI
+ - Zustand
+ - React Router
+ - React Hot Toast (notifications)
 
   **Backend**
 
