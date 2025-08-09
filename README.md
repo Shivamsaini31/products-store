@@ -47,6 +47,3 @@ Built using React, Node.js, Express, and PostgreSQL (Neon) with a modern UI powe
 - PostgreSQL (Neon)
 - SQL queries with postgres.js
 
-PostgreSQL (Neon)
-
-SQL queries with postgres.js
