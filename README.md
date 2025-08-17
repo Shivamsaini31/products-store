@@ -1,3 +1,7 @@
+<img width="1647" height="854" alt="image" src="https://github.com/user-attachments/assets/a6469f4b-e52c-4e5e-bd9b-58505ff537c5" />
+<img width="1710" height="852" alt="image" src="https://github.com/user-attachments/assets/b8c4c57c-2370-4bfc-9eee-777f131ed63e" />
+
+
 **🛒 Products Store**
 A full-stack Products Store application with CRUD functionality for managing products.
 Built using React, Node.js, Express, and PostgreSQL (Neon) with a modern UI powered by TailwindCSS, DaisyUI, and Zustand for state management.
