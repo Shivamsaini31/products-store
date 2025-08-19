@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
-import Navbar from "./components/Navbar.jsx"
+import Navbar from "./components/Navbar.jsx";
 import { useThemeStore } from './store/useThemeStore';
 import {Routes, Route} from "react-router-dom";
 import { Toaster } from 'react-hot-toast';
